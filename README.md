@@ -15,7 +15,7 @@ Tips for using docker
 > docker rmi [镜像name/id] # 删除镜像
 > docker run --privileged=true -p80:80 -v /root/nginx_docker/www:/www -v /root/nginx.conf:/etc/nginx/nginx.conf --name nginx -d docker.io/nginx
 # docker清理占用卷
-# 如果你的docker目录仍然占据着大量空间，那可能是因为多余的卷占用了你的磁盘。RM命令的-v命令通常会处理这个问题。但有时，如果你关闭容器不会自动删除容器，VFS目录将增长很快。我们可以通过删除不需要的卷来恢复这个空间。要做到这一点，有一个Docker镜像，你可以使用如下命令来运行它：
+> 如果你的docker目录仍然占据着大量空间，那可能是因为多余的卷占用了你的磁盘。RM命令的-v命令通常会处理这个问题。但有时，如果你关闭容器不会自动删除容器，VFS目录将增长很快。我们可以通过删除不需要的卷来恢复这个空间。要做到这一点，有一个Docker镜像，你可以使用如下命令来运行它：
 > docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
 # 删除所有已经停止的容器
 > sudo docker rm $(sudo docker ps -a -q)
